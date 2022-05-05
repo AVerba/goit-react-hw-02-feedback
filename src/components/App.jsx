@@ -52,6 +52,7 @@ export default class App extends Component {
                 good={good}
                 bad={bad}
                 neutral={neutral}
+                total={allGoal}
                 positivePercentage={PositiveFeedbackPercent}
               ></Statistic>
             </>
