@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Container } from './Container';
+import { Section } from './Section';
 
 export default class App extends Component {
   state = {
@@ -24,7 +26,12 @@ export default class App extends Component {
   };
 
   render() {
-    return <div>hello</div>;
+    return (
+      <Container className="feedBack">
+        <Section className="FeedbackOp"></Section>
+        <Section className="FeedbackStatictic"></Section>
+      </Container>
+    );
   }
 }
 
