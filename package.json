@@ -26,7 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --write && git add"
+      "pre-commit": "prettier --write"
     }
   },
   "eslintConfig": {
