@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ options, feedbackHandler }) => {
+export const FeedbackOptions = ({ options, feedbackHandler }) => {
   return (
     <ul className={styles.list}>
       {options.map((option, index) => (
