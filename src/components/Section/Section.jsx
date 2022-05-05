@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 export const Section = ({ className, children }) => {
-  const classList = cx(styles.section, { className });
+  const classList = cx(styles.section, className);
   return <div className={classList}>{children}</div>;
 };
 

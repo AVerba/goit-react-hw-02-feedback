@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import { Container } from './Container';
 import { Section } from './Section';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Statistic } from './Statistics';
+import { Title } from './ui/Title';
+import styles from './App.module.css';
 
 export default class App extends Component {
   state = {
@@ -31,21 +34,33 @@ export default class App extends Component {
     const { good, neutral, bad } = this.state;
     const key = Object.keys(this.state);
     const PositiveFeedbackPercent = this.countPositiveFeedbackPercentage();
+    const allGoal = this.countTotalFeedback();
     return (
-      <Container className="feedBack">
-        <Section className="Options">
+      <Container className={styles.feedBack}>
+        <Section className="options">
+          <Title className="optionsBody" title="Please leave feedback" />
           <FeedbackOptions
             options={key}
             feedbackHandler={this.feedbackHandler}
           ></FeedbackOptions>
         </Section>
-        <Section className="Statictic">
-          <Statistic
-            good={good}
-            bad={bad}
-            neutral={neutral}
-            positivePercentage={PositiveFeedbackPercent}
-          ></Statistic>
+        <Section className="statistic">
+          {allGoal ? (
+            <>
+              <Title className="statisticBody" title="Statistics" />
+              <Statistic
+                good={good}
+                bad={bad}
+                neutral={neutral}
+                positivePercentage={PositiveFeedbackPercent}
+              ></Statistic>
+            </>
+          ) : (
+            <Title
+              className="statisticNotification"
+              title="There is no feedback"
+            />
+          )}
         </Section>
       </Container>
     );
